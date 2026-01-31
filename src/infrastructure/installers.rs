@@ -40,13 +40,13 @@ fn install_dotnet_mac() -> bool {
         println!("   Detected macOS with Homebrew...");
         shell::install_script("brew", &["install", "--cask", "dotnet-sdk"])
     } else {
-        println!("   {} Error: Homebrew not found. Install it first or download .NET manually.", "❌".red());
+        println!("   {} Error: Homebrew not found. Install it first or download .NET manually.".red());
         false
     }
 }
 
 fn install_dotnet_linux() -> bool {
-    println!("   {} Detecting Linux Package Manager...", "🐧".cyan());
+    println!("   {} Detecting Linux Package Manager...".cyan());
 
     // 1. Debian / Ubuntu / Mint / Kali
     if shell::is_installed("apt") {
@@ -77,7 +77,7 @@ fn install_dotnet_linux() -> bool {
     }
 
     // 5. Fallback (Gentoo, Slackware, NixOS, etc.)
-    println!("   {} Warning: No supported package manager found (apt, dnf, pacman, apk).", "⚠️".yellow());
+    println!("   {} Warning: No supported package manager found (apt, dnf, pacman, apk).".yellow());
     println!("   Please install .NET SDK 8 manualy from: https://dotnet.microsoft.com/download");
     false
 }
